@@ -1,14 +1,16 @@
 import PortaModel from "@/model/porta"
 import styles from "../styles/Porta.module.css"
+import Presente from "../components/Presente"
 
 interface PortaProps {
   value: PortaModel
   onChange: (novaPorta: PortaModel) => void
 }
 
-export default function Presente(props: PortaProps) {
+export default function Porta(props: PortaProps) {
   const porta = props.value
-  const selecionada = porta.selecionada && !porta.aberta ? styles.selecionada : ""
+  const selecionada =
+    porta.selecionada && !porta.aberta ? styles.selecionada : ""
 
   const alterarSelecao = (e: any) => props.onChange(porta.alterarSelecao())
 
@@ -29,7 +31,10 @@ export default function Presente(props: PortaProps) {
   return (
     <div className={styles.area} onClick={alterarSelecao}>
       <div className={`${styles.estrutura} ${selecionada}`}>
-        {porta.aberta ? false : renderizarPortaFechada()}
+        {porta.fechada ? 
+          renderizarPortaFechada() : 
+          porta.temPresente ? <Presente /> : false
+        }
       </div>
       <div className={styles.chao}></div>
     </div>
