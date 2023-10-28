@@ -1,0 +1,17 @@
+.cartao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18.75rem;
+  height: 18.75rem;
+  color: #fff;
+  font-size: 2rem;
+  margin: 3px;
+  padding: 1.25rem;
+}
+
+.cartao h1 { 
+  font-size: 4rem;
+  font-weight: bold;
+}
+
